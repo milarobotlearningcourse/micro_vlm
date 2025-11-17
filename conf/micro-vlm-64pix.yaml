@@ -1,0 +1,49 @@
+experiment:
+  name: micro_vlm
+  project: micro-vlm
+  
+batch_size: 64 # how many independent sequences will we process in parallel?
+max_block_size: 16 ## Will be overidden by code
+image_block_size: 64 ## Will be overidden by code
+vocab_size: 32 ## Will be overidden by code
+phrase_length: 64 
+patch_size: 8
+max_iters: 50000
+eval_interval: 100
+learning_rate: 5e-5
+eval_iters: 50
+
+n_embd: 256
+device: "cuda"
+testing: true
+gradient_accumulation_steps: 1
+
+# ------------
+
+r_seed: 1337
+n_head: 16
+n_blocks: 4
+dropout: 0.2
+action_bins: 79
+action_dim: 79
+
+
+
+## Model hyperparameters
+image_shape: [64, 64, 3]
+dataset: 
+  dataset_name: merve/vqav2-small
+  save_initial_dataset: false
+  to_dataset_name_new: gberseth/vqav2-small-64px
+  buffer_size: 50000
+  encode_with_t5: false
+  t5_version: "t5-small"
+  chars_list:  [' ', ',', '.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+   '!', '?', '"', "'", '(', ')', '-', '_', ':', ';',
+   '@', '#', '$', '%', '&', '*', '+', '=', '<', '>', '/', '\\', '|', '~', '`',
+   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 
+   'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+  load_dataset: true
+  
+  
+trim: 100000  # Trim dataset to this size for faster testing
