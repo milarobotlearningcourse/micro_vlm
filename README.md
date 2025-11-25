@@ -1,8 +1,37 @@
+[![Open mini-grp In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://githubtocolab.com/milarobotlearningcourse/mini-grp/blob/main/mini-grp.ipynb)
 
+# Micro Vision Language Model: 
 
-# Running code
+Minimialist reimplimentation of a decoder only Vision Language Model (VLM).
+
+## Install
+
+conda create -n micro-vlm python=3.10
+conda activate micro-vlm
+pip install -r requirements.txt
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+## Dataset
+
+https://huggingface.co/datasets/merve/vqav2-small
+Has around 21k datapoints for VQA.
+
+The code reduces the image size down to 64x64x3 so it can fit on a small computer.
+
+## Running the code
+
+Basic example to train the GRP over the bridge dataset 
 
 ```
-mila code --cluster mila playground/mini-grp/ --alloc --gres gpu:1 --mem=32G --cpus-per-gpu=6 --partition unkillable
-mila code playground/mini-grp --cluster rorqual.alliancecan.ca --alloc --gres gpu:1 --mem=32G --cpus-per-gpu=6 --account=rrg-gberseth --time=2:59:00
+python micro_vlm.py
 ```
+
+Launch multiple jobs on a slurm cluster to evalute different model architectures, etc.
+```
+python mini-grp.py --multirun gradient_accumulation_steps=1,2,4 hydra/launcher=submitit_slurm
+```
+
+
+### License
+
+MIT

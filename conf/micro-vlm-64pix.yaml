@@ -3,7 +3,7 @@ experiment:
   project: micro-vlm
   
 batch_size: 64 # how many independent sequences will we process in parallel?
-max_block_size: 16 ## Will be overidden by code
+max_block_size: 32 ## Will be overidden by code
 image_block_size: 64 ## Will be overidden by code
 vocab_size: 32 ## Will be overidden by code
 phrase_length: 64 
@@ -14,7 +14,7 @@ learning_rate: 5e-5
 eval_iters: 50
 
 n_embd: 256
-device: "cuda"
+device: "cpu"
 testing: true
 gradient_accumulation_steps: 1
 
