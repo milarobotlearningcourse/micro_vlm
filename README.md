@@ -1,4 +1,4 @@
-[![Open micro-vlm In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://githubtocolab.com/milarobotlearningcourse/micro_vlm/blob/main/micro_clm.ipynb)
+[![Open micro-vlm In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://githubtocolab.com/milarobotlearningcourse/micro_vlm/blob/main/micro_vlm.ipynb)
 
 # Micro Vision Language Model: 
 
